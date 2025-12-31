@@ -1,0 +1,14 @@
+<h1>All users</h1>
+
+<CreateUserForm />
+
+{{#if @model}}
+  {{#each @model as |user|}}
+    <Card
+      @model={{user}}
+    />
+  {{/each}}
+
+{{else}}
+  <p>No users found!</p>
+{{/if}}
