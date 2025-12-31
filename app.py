@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from api_init import api
-from models import migrate, db, User
+from models import migrate, db, login, User
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "abcdefg12345678"
@@ -20,6 +20,7 @@ CORS(
 api.init_app(app)
 migrate.init_app(app, db)
 db.init_app(app)
+login.init_app(app)
 
 if __name__ == "__main__":
   app.run(port=5000, debug=True)

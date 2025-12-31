@@ -1,7 +1,7 @@
-import { equals, notEquals } from "../helpers/conditionals";
-import { LinkTo } from "@ember/routing";
-import Component from "@glimmer/component";
-import { service } from "@ember/service";
+import { equals, notEquals } from '../helpers/conditionals';
+import { LinkTo } from '@ember/routing';
+import Component from '@glimmer/component';
+import { service } from '@ember/service';
 
 export default class Card extends Component {
   @service router;
@@ -12,7 +12,7 @@ export default class Card extends Component {
 
   <template>
     <div class="card">
-      {{#if (notEquals this.currentRoute 'users.user')}}
+      {{#if (notEquals this.currentRoute "users.user")}}
         <LinkTo @route="users.user" @model={{@model}}>
           <h3>Username: {{@model.username}}</h3>
         </LinkTo>
@@ -22,7 +22,8 @@ export default class Card extends Component {
       <h4>Full name: {{@model.fullName}}</h4>
       <p>Age:
         {{@model.age}}
-        {{if (equals @model.age 1) 'year' 'years'}} old ({{if
+        {{if (equals @model.age 1) "year" "years"}}
+        old ({{if
           @model.isLegalAge
           "Is of a legal age!"
           "Is not of a legal age"

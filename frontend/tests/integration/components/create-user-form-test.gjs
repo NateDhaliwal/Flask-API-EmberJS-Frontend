@@ -17,11 +17,13 @@ module('Integration | Component | create-user-form', function (hooks) {
     assert.dom().hasText('');
 
     // Template block usage:
-    await render(<template>
-      <CreateUserForm>
-        template block text
-      </CreateUserForm>
-    </template>);
+    await render(
+      <template>
+        <CreateUserForm>
+          template block text
+        </CreateUserForm>
+      </template>
+    );
 
     assert.dom().hasText('template block text');
   });

@@ -2,12 +2,11 @@
 
 <UpdateUserForm @user={{@model}} />
 
-<button {{on "click" (fn this.deleteUser @model)}}>Delete {{@model.username}}</button>
+<button type="button" {{on "click" (fn this.deleteUser @model)}}>Delete
+  {{@model.username}}</button>
 
 {{#if @model}}
-  <Card
-    @model={{@model}}
-  />
+  <Card @model={{@model}} />
 
 {{else}}
   <p>No users found!</p>

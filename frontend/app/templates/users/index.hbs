@@ -4,9 +4,7 @@
 
 {{#if @model}}
   {{#each @model as |user|}}
-    <Card
-      @model={{user}}
-    />
+    <Card @model={{user}} />
   {{/each}}
 
 {{else}}

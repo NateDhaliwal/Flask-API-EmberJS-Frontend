@@ -32,7 +32,8 @@ export default class UpdateUserForm extends Component {
   }
 
   @action
-  updateField(trackedVar, event) { // Event is passed in automatically
+  updateField(trackedVar, event) {
+    // Event is passed in automatically
     this[trackedVar] = event.target.value;
   }
 
@@ -57,32 +58,61 @@ export default class UpdateUserForm extends Component {
   }
 
   <template>
-    <button type="button" {{on 'click' this.changeFormState}}>
-      {{if this.formIsShowing 'Close' 'Open'}}
+    <button type="button" {{on "click" this.changeFormState}}>
+      {{if this.formIsShowing "Close" "Open"}}
       form
     </button>
 
     {{#if this.formIsShowing}}
       <div id="create-user-form">
         <label for="username">Username:</label>
-        <input id="username" type="text" value={{this.usernameValue}} {{on 'input' (fn this.updateField 'usernameValue')}} />
-        
-        <label for="password">Password:</label>
-        <input id="password" type="password" value={{this.passwordValue}} {{on 'input' (fn this.updateField 'passwordValue')}} required />
-        
-        <label for="age">Age:</label>
-        <input id="age" type="number" value={{this.ageValue}} {{on 'input' (fn this.updateField 'ageValue')}} />
-        
-        <label for="first-name">First name:</label>
-        <input id="first-name" type="text" value={{this.firstNameValue}} {{on 'input' (fn this.updateField 'firstNameValue')}} />
-        
-        <label for="last-name">Last name:</label>
-        <input id="last-name" type="text" value={{this.lastNameValue}} {{on 'input' (fn this.updateField 'lastNameValue')}} />
-        
-        <label for="bio">Bio:</label>
-        <textarea id="bio" {{on 'input' (fn this.updateField 'bioValue')}}>{{this.bioValue}}</textarea>
+        <input
+          id="username"
+          type="text"
+          value={{this.usernameValue}}
+          {{on "input" (fn this.updateField "usernameValue")}}
+        />
 
-        <button type="button" {{on 'click' this.submitForm}}>Update user</button>
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          value={{this.passwordValue}}
+          {{on "input" (fn this.updateField "passwordValue")}}
+          required
+        />
+
+        <label for="age">Age:</label>
+        <input
+          id="age"
+          type="number"
+          value={{this.ageValue}}
+          {{on "input" (fn this.updateField "ageValue")}}
+        />
+
+        <label for="first-name">First name:</label>
+        <input
+          id="first-name"
+          type="text"
+          value={{this.firstNameValue}}
+          {{on "input" (fn this.updateField "firstNameValue")}}
+        />
+
+        <label for="last-name">Last name:</label>
+        <input
+          id="last-name"
+          type="text"
+          value={{this.lastNameValue}}
+          {{on "input" (fn this.updateField "lastNameValue")}}
+        />
+
+        <label for="bio">Bio:</label>
+        <textarea
+          id="bio"
+          {{on "input" (fn this.updateField "bioValue")}}
+        >{{this.bioValue}}</textarea>
+
+        <button type="button" {{on "click" this.submitForm}}>Update user</button>
       </div>
     {{/if}}
   </template>

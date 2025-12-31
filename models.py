@@ -1,10 +1,12 @@
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin, LoginManager
 
 migrate = Migrate()
 db = SQLAlchemy()
+login = LoginManager()
 
-class User(db.Model):
+class User(db.Model, UserMixin):
   __tablename__ = "users"
 
   id = db.Column(db.Integer, primary_key=True, nullable=True, unique=True)

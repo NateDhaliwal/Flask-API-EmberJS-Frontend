@@ -6,7 +6,7 @@ api = Api()
 
 class CurrentUser():
   def get(self):
-    
+    return
 
 class Users(Resource):
   def get(self):

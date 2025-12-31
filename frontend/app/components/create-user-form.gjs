@@ -22,7 +22,8 @@ export default class CreateUserForm extends Component {
   }
 
   @action
-  updateField(trackedVar, event) { // Event is passed in automatically
+  updateField(trackedVar, event) {
+    // Event is passed in automatically
     this[trackedVar] = event.target.value;
   }
 
@@ -34,7 +35,7 @@ export default class CreateUserForm extends Component {
       age: this.ageValue,
       first_name: this.firstNameValue,
       last_name: this.lastNameValue,
-      bio: this.bioValue
+      bio: this.bioValue,
     });
 
     newUser.save();
@@ -44,32 +45,52 @@ export default class CreateUserForm extends Component {
   }
 
   <template>
-    <button type="button" {{on 'click' this.changeFormState}}>
-      {{if this.formIsShowing 'Close' 'Open'}}
+    <button type="button" {{on "click" this.changeFormState}}>
+      {{if this.formIsShowing "Close" "Open"}}
       form
     </button>
 
     {{#if this.formIsShowing}}
       <div id="create-user-form">
         <label for="username">Username:</label>
-        <input id="username" type="text" {{on 'input' (fn this.updateField 'usernameValue')}} />
-        
-        <label for="password">Password:</label>
-        <input id="password" type="password" {{on 'input' (fn this.updateField 'passwordValue')}} />
-        
-        <label for="age">Age:</label>
-        <input id="age" type="number" {{on 'input' (fn this.updateField 'ageValue')}} />
-        
-        <label for="first-name">First name:</label>
-        <input id="first-name" type="text" {{on 'input' (fn this.updateField 'firstNameValue')}} />
-        
-        <label for="last-name">Last name:</label>
-        <input id="last-name" type="text" {{on 'input' (fn this.updateField 'lastNameValue')}} />
-        
-        <label for="bio">Bio:</label>
-        <textarea id="bio" {{on 'input' (fn this.updateField 'bioValue')}} />
+        <input
+          id="username"
+          type="text"
+          {{on "input" (fn this.updateField "usernameValue")}}
+        />
 
-        <button type="button" {{on 'click' this.submitForm}}>Create user</button>
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          type="password"
+          {{on "input" (fn this.updateField "passwordValue")}}
+        />
+
+        <label for="age">Age:</label>
+        <input
+          id="age"
+          type="number"
+          {{on "input" (fn this.updateField "ageValue")}}
+        />
+
+        <label for="first-name">First name:</label>
+        <input
+          id="first-name"
+          type="text"
+          {{on "input" (fn this.updateField "firstNameValue")}}
+        />
+
+        <label for="last-name">Last name:</label>
+        <input
+          id="last-name"
+          type="text"
+          {{on "input" (fn this.updateField "lastNameValue")}}
+        />
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" {{on "input" (fn this.updateField "bioValue")}} />
+
+        <button type="button" {{on "click" this.submitForm}}>Create user</button>
       </div>
     {{/if}}
   </template>
