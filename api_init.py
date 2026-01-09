@@ -2,7 +2,7 @@ from flask import request
 from flask_restful import Resource, Api
 from models import db, User
 
-api = Api()
+api = Api(prefix='/api')
 
 class CurrentUser():
   def get(self):
@@ -93,7 +93,7 @@ class UserPage(Resource):
     try:
       data = payload['data']['attributes']
       user.username = data['username']
-      user.password = data['username']
+      user.password = data['password']
       user.age = user.age
       user.first_name = data['first-name']
       user.last_name = data['last-name']
